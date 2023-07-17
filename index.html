@@ -43,15 +43,15 @@
                 var iframeDocument = iframe.contentWindow.document;
 
                 // Пример: Изменяем текст заголовка <h1> в iframe
-                var header = iframeDocument.querySelector('.header__controls__link');
+ 		var header = iframeDocument.querySelector('h2');
                 if (header) {
-                    console.log(header.textContent);
+                    header.textContent = "Hello from the parent page!";
                 }
             }
         }
 
         // Ожидаем, пока iframe загрузится, и затем вызываем функцию
-        document.getElementById('myIframe').addEventListener('load', manipulateIframeContent);
+        document.getElementById('x-frame-bypass').addEventListener('load', manipulateIframeContent);
     </script>
 </body>
 </html>
