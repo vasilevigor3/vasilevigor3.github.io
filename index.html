@@ -29,13 +29,14 @@
 	<script src="x-frame-bypass.js" type="module"></script>
 </head>
 <body>
-	<iframe id="x-frame-bypass" src="https://precoro.com/get-a-demo"></iframe>
+	<iframe is="x-frame-bypass" src="https://precoro.com/get-a-demo" class="asd"></iframe>
 
 	<script>
         // Функция для выполнения кода внутри iframe после его загрузки
         function manipulateIframeContent() {
             // Получаем доступ к iframe
-            var iframe = document.getElementById('x-frame-bypass');
+            //var iframe = document.getElementById('x-frame-bypass');
+		var iframe = document.querySelector('.asd');
 
             // Проверяем, загрузился ли iframe
             if (iframe && iframe.contentWindow) {
