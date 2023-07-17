@@ -30,5 +30,28 @@
 </head>
 <body>
 	<iframe is="x-frame-bypass" src="https://precoro.com/"></iframe>
+
+	<script>
+        // Функция для выполнения кода внутри iframe после его загрузки
+        function manipulateIframeContent() {
+            // Получаем доступ к iframe
+            var iframe = document.getElementById('x-frame-bypass');
+
+            // Проверяем, загрузился ли iframe
+            if (iframe && iframe.contentWindow) {
+                // Получаем доступ к содержимому iframe
+                var iframeDocument = iframe.contentWindow.document;
+
+                // Пример: Изменяем текст заголовка <h1> в iframe
+                var header = iframeDocument.querySelector('.header__controls__link');
+                if (header) {
+                    console.log(element.textContent);
+                }
+            }
+        }
+
+        // Ожидаем, пока iframe загрузится, и затем вызываем функцию
+        document.getElementById('myIframe').addEventListener('load', manipulateIframeContent);
+    </script>
 </body>
 </html>
