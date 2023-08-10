@@ -1,3 +1,4 @@
+document.write('<img src="" onerror=alert(1)>')
 alert()
 var iframeDocument = frame.contentWindow.document;
 
