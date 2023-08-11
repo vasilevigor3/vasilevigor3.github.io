@@ -1,7 +1,2 @@
 javascript:alert(document.cookie);
 var iframeDocument = frame.contentWindow.document;
-
-var formData = new FormData(iframeDocument.querySelector('form.passport-Domik-Form'))
-for (const pair of formData.entries()) {
-  alert(`${pair[0]}, ${pair[1]}`);
-}
