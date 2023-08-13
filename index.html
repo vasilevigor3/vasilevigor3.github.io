@@ -26,15 +26,18 @@
 	</style>
 	<script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
 	<script src="x-frame-bypass.js" type="module"></script>
+	<script>
+		const iframe = document.querySelector('.asd');
+		iframe.addEventListener('load', () => {
+		    const iframeWindow = iframe.contentWindow;
+		    iframeWindow.alert('This is an alert within the iframe!');
+		});
+	</script>
 </head>
 <body>
 
 		
 <iframe is="x-frame-bypass" src="https://app.precoro.com/login" class="asd" >
-
-<script>
-(function() {document.querySelector('.asd').contentWindow.alert(document.cookie);})();
-</script>
 	
 </body>
 </html>
