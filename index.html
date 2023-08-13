@@ -37,8 +37,8 @@
 		var iframe = document.querySelector('.asd');
 		
 		if (iframe && iframe.contentWindow) {
-			var injectedIframe = iframe.contentWindow.document;
-			injectedIframe.alert(1337);
+			var injectedIframe = iframe.contentWindow;
+			
 			injectedIframe.alert(document.cookie);
 		}
 	}
