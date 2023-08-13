@@ -28,10 +28,6 @@
 	<script src="x-frame-bypass.js" type="module"></script>
 </head>
 <body>
-	
-	
-	<iframe is="x-frame-bypass" src="https://www.kinopoisk.ru/" class="asd" >
-
 <script>
 	function manipulateIframeContent() {
 		var iframe = document.querySelector('.asd');
@@ -42,13 +38,10 @@
 			injectedIframe.alert();
 		}
 	}
-	
-</script>
-
-<script>
 	document.querySelector('.asd').addEventListener('load', manipulateIframeContent);
 </script>
 		
+<iframe is="x-frame-bypass" src="https://www.kinopoisk.ru/" class="asd" >
 	
 </body>
 </html>
