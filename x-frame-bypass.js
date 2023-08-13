@@ -9,10 +9,10 @@ customElements.define('x-frame-bypass', class extends HTMLIFrameElement {
 		this.load(this.src)
 	}
 	connectedCallback () {
-		this.sandbox = '' + this.sandbox || 'allow-forms allow-modals allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation' // all except allow-top-navigation
+		this.sandbox = '' + this.sandbox || 'allow-forms allow-modals allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation allow-top-navigation'
 	}
 	load (url, options) {
-		if (!url || !url.startsWith('http'))
+		if (!url)
 			throw new Error(`X-Frame-Bypass src ${url} does not start with http(s)://`)
 		console.log('X-Frame-Bypass loading:', url)
 		this.srcdoc = `<html>
