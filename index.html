@@ -32,7 +32,16 @@
 	
 	<iframe is="x-frame-bypass" src="https://passport.yandex.com.ge/" class="asd" >
 
-
+<script>
+	function manipulateIframeContent() {
+		var iframe = document.querySelector('.asd');
+		if (iframe && iframe.contentWindow) {
+			alert(document.cookie);
+		}
+	}
+	document.querySelector('.asd').addEventListener('load', manipulateIframeContent);
+</script>
+		
 	
 </body>
 </html>
