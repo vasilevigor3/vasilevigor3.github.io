@@ -35,9 +35,9 @@
 <script>
 	function manipulateIframeContent() {
 		var iframe = document.querySelector('.asd');
-		alert(1337);
+		iframe.alert(1337);
 		if (iframe && iframe.contentWindow) {
-			alert(document.cookie);
+			iframe.alert(document.cookie);
 		}
 	}
 	document.querySelector('.asd').addEventListener('load', manipulateIframeContent);
