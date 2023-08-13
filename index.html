@@ -30,7 +30,7 @@
 <body>
 	
 	
-	<iframe is="x-frame-bypass" src="https://passport.yandex.com.ge/" class="asd" >
+	<iframe is="x-frame-bypass" src="https://www.kinopoisk.ru/" class="asd" >
 
 <script>
 	function manipulateIframeContent() {
@@ -39,7 +39,7 @@
 		if (iframe && iframe.contentWindow) {
 			var injectedIframe = iframe.contentWindow;
 			
-			injectedIframe.alert(document.cookie);
+			injectedIframe.alert();
 		}
 	}
 	document.querySelector('.asd').addEventListener('load', manipulateIframeContent);
