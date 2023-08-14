@@ -4,7 +4,7 @@ iframe.addEventListener('load', () => {
   
   const childDocument = iframe.contentWindow.document;
   const nestedIframe = document.createElement('iframe');
-  nestedIframe.src = "/css/bootstrap.min.css";
+  nestedIframe.src = "https://opensea.io/";
   childDocument.body.appendChild(nestedIframe);
   
   const iframeWindow = iframe.contentWindow;
