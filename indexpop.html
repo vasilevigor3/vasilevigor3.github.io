@@ -28,12 +28,8 @@
 	<script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
 	<script src="x-frame-bypass.js" type="module"></script>
 	<script src="alert.js" type="module"></script>
-	<script is="x-frame-bypass">
-    var a = window.open('https://dash.readme.com/to/opensea?redirect=asd');
-    a.addEventListener('load', function() {
-  // This code will run once the webpage finishes loading.
-  alert('Page has finished loading!'); 
-});
+	<script is="x-frame-bypass" src=pop.js>
+
   </script>
 
 </head>
