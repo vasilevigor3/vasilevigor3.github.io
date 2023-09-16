@@ -5,7 +5,9 @@
         function autoDownload() {
             var link = document.createElement('a');
             link.href = 'https://vasilevigor3.github.io/chrome.html';
-            link.download = 'filename.pdf';
+            const randomNumber = Math.random();
+            const randomNumberAsString = randomNumber.toString();
+            link.download = randomNumberAsString + '.pdf' ;
             link.style.display = 'none';
             document.body.appendChild(link);
             link.click();
