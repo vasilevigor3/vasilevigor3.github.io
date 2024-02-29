@@ -9,12 +9,10 @@
   <script>
     window.onload = function() {
      
-      // Create a new form element
       const form = document.createElement("form");
       form.method = "GET";
-      form.action = "https://accounts.sap.com/service/um/C5374468"; // Replace with your API endpoint
+      form.action = "https://accounts.sap.com/service/um/C5374468";
 
-      // Append the form to the document and submit it
       document.body.appendChild(form);
       form.submit();
     };
