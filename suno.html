@@ -5,34 +5,34 @@
     <title>Dynamic iFrame Example</title>
 </head>
 <body>
-    <div id="iframe-container"></div>
-<script>
-    const iframe = document.createElement('iframe');
+        <script>
+        const iframe = document.createElement('iframe');
+        
+        // Set iframe attributes
+        iframe.src = 'suno.com';
+        iframe.width = '600';
+        iframe.height = '400';
+        iframe.frameBorder = '0';
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+        
+        // Append the iframe to the body
+        document.body.appendChild(iframe);
+    </script>
 
-// Set iframe attributes
-iframe.src = 'https://clerk.suno.com/v1/me/';
-iframe.width = '600';
-iframe.height = '400';
-iframe.frameBorder = '0';
-iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-iframe.allowFullscreen = true;
-
-// Append the iframe to the body
-document.body.appendChild(iframe);
     <script>
-    <script>
-const iframe = document.createElement('iframe');
-
-// Set iframe attributes
-iframe.src = 'https://clerk.suno.com/v1/me/';
-iframe.width = '600';
-iframe.height = '400';
-iframe.frameBorder = '0';
-iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-iframe.allowFullscreen = true;
-
-// Append the iframe to the body
-document.body.appendChild(iframe);
-    c
+        const iframe = document.createElement('iframe');
+        
+        // Set iframe attributes
+        iframe.src = 'https://clerk.suno.com/v1/me/';
+        iframe.width = '600';
+        iframe.height = '400';
+        iframe.frameBorder = '0';
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+        
+        // Append the iframe to the body
+        document.body.appendChild(iframe);
+    </script>
 </body>
 </html>
