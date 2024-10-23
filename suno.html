@@ -7,16 +7,15 @@
 <body>
     <h1>Fetch Example</h1>
     <script>
-        fetch('https://clerk.suno.com/v1/me/', {
-    method: 'GET',
-    credentials: 'include',
-            origin:'suno.com',
-            host:'suno.com',
-            'x-cors-origin':'suno.com'// Отправка cookies с запросами
-})
-.then(response => response.json())
-.then(data => console.log(data))
-.catch(error => console.error('Error:', error));
+        var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        console.log(xhr.responseText);
+    }
+}
+xhr.open('GET', 'http://clerk.suno.com/v1/me/', true); 
+xhr.withCredentials = true; 
+xhr.send(null);
     </script>
 
     <!DOCTYPE html>
