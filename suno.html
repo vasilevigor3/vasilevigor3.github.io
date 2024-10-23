@@ -7,15 +7,13 @@
 <body>
     <h1>Fetch Example</h1>
     <script>
-        fetch('https://suno.com/playlist/2479ec84-fc53-4611-b014-0ffc90c030dd?campaign=timbaland')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => console.log(data))
-            .catch(error => console.error('Error:', error));
+        fetch('https://clerk.suno.com/v1/me/', {
+    method: 'GET',
+    credentials: 'include' // Отправка cookies с запросами
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));
     </script>
 
     <!DOCTYPE html>
@@ -26,14 +24,7 @@
     <title>Embed with Iframe</title>
 </head>
 <body>
-    <h1>Embedded Content</h1>
-    <iframe src="https://accounts.suno.com/sign-in?redirect_url=https%3A%2F%2Fgoogle.com%2F" width="600" height="400" style="border:none;">
-        Your browser does not support iframes.
-    </iframe>
 
-        <iframe src="https://clerk.suno.com/v1/me/" width="600" height="400" style="border:none;">
-        Your browser does not support iframes.
-    </iframe>
 </body>
 </html>
 </body>
