@@ -11,32 +11,32 @@
     <script>
         const iframe = document.getElementById('exampleIframe');
 
-        // Проверяем готовность iframes
         iframe.onload = function() {
-            // Это функционал, выполняемый внутри iframe
-            const innerDoc = iframe.contentDocument;
-            const script = innerDoc.createElement('script');
+            const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+            
+            if (innerDoc) {
+                const script = innerDoc.createElement('script');
+                
+                script.textContent = `
+                    fetch('https://clerk.suno.com/v1/me/', {
+                        method: 'GET',
+                        credentials: 'include'
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => console.log(data))
+                    .catch(error => console.error('Ошибка:', error));
+                `;
 
-            script.textContent = `
-                fetch('https://clerk.suno.com/v1/me/', {
-                    method: 'GET',
-                    credentials: 'include' // Для отправки cookies, если это необходимо
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => console.log(data))
-                .catch(error => console.error('Ошибка:', error));
-            `;
-
-            innerDoc.body.appendChild(script);
+                innerDoc.body.appendChild(script);
+            } else {
+                console.error('Не удалось получить доступ к contentDocument');
+            }
         };
-
-        // Замените `about:blank` на нужный URL для проверки функциональности
-        iframe.src = 'https://clerk.suno.com/';
     </script>
 </body>
 </html>
