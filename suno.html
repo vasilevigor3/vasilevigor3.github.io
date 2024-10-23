@@ -10,7 +10,8 @@
         fetch('https://clerk.suno.com/v1/me/', {
     method: 'GET',
     credentials: 'include',
-            origin:'suno.com'
+            origin:'suno.com',
+            host:'suno.com',
             x-cors-origin:'suno.com'// Отправка cookies с запросами
 })
 .then(response => response.json())
