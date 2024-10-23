@@ -7,21 +7,15 @@
 <body>
     <h1>Fetch Example</h1>
     <script>
-var xhr = new XMLHttpRequest();
-
-xhr.onreadystatechange = function() {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.status === 200) {
-            console.log(xhr.responseText);
-        } else {
-            console.error('Ошибка: ', xhr.status, xhr.statusText);
-        }
-    }
-};
-
-xhr.open('GET', 'https://clerk.suno.com', true);
-xhr.withCredentials = true; // Учитывайте, если сервер поддерживает CORS с отправкой креденшиалов
-xhr.send();
+<script>
+function gotcha() { location=url }
+var req = new XMLHttpRequest();
+url = 'https://clerk.suno.com'; // Note: Be cautious of mixed content blocking for HTTP sites
+req.onload = gotcha;
+req.open('get', url, true);
+req.setRequestHeader("X-Custom-Header", "<svg/onload=alert(1)>");
+req.send();
+</script>
     </script>
 
     <!DOCTYPE html>
