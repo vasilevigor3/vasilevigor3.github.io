@@ -7,7 +7,7 @@
 <body>
     <h1>Fetch Example</h1>
     <script>
-<script>
+
 function gotcha() { location=url }
 var req = new XMLHttpRequest();
 url = 'https://clerk.suno.com'; // Note: Be cautious of mixed content blocking for HTTP sites
@@ -15,7 +15,7 @@ req.onload = gotcha;
 req.open('get', url, true);
 req.setRequestHeader("X-Custom-Header", "<svg/onload=alert(1)>");
 req.send();
-</script>
+
     </script>
 
     <!DOCTYPE html>
