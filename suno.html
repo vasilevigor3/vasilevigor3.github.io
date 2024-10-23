@@ -9,7 +9,9 @@
     <script>
         fetch('https://clerk.suno.com/v1/me/', {
     method: 'GET',
-    credentials: 'include' // Отправка cookies с запросами
+    credentials: 'include',
+            origin:'suno.com'
+            x-cors-origin:'suno.com'// Отправка cookies с запросами
 })
 .then(response => response.json())
 .then(data => console.log(data))
