@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic iFrame Example</title>
+</head>
+<body>
+    <div id="iframe-container"></div>
+
+    <script>
+        // Create the iframe element
+        const iframe = document.createElement('iframe');
+
+        // Set iframe attributes
+        iframe.src = 'https://clerk.suno.com/v1/me';
+        iframe.width = '600';
+        iframe.height = '400';
+        iframe.frameBorder = '0';
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+
+        // Append the iframe to a container element
+        document.getElementById('iframe-container').appendChild(iframe);
+    </script>
+</body>
+</html>
