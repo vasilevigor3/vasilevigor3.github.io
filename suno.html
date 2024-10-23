@@ -8,19 +8,18 @@
     <div id="iframe-container"></div>
 
     <script>
-        // Create the iframe element
-        const iframe = document.createElement('iframe');
+const iframe = document.createElement('iframe');
 
-        // Set iframe attributes
-        iframe.src = 'https://clerk.suno.com/v1/me';
-        iframe.width = '600';
-        iframe.height = '400';
-        iframe.frameBorder = '0';
-        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-        iframe.allowFullscreen = true;
+// Set iframe attributes
+iframe.src = 'https://clerk.suno.com/v1/me/';
+iframe.width = '600';
+iframe.height = '400';
+iframe.frameBorder = '0';
+iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+iframe.allowFullscreen = true;
 
-        // Append the iframe to a container element
-        document.getElementById('iframe-container').appendChild(iframe);
+// Append the iframe to the body
+document.body.appendChild(iframe);
     </script>
 </body>
 </html>
