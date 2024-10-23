@@ -2,30 +2,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic iFrame Example</title>
+    <title>Fetch Example</title>
 </head>
 <body>
-        <script>
-                const url = 'https://clerk.suno.com/v1/me/';
-                
-                // Make the request
-                fetch(url)
-                .then(response => {
-                // Check if the request was successful
+    <h1>Fetch Example</h1>
+    <script>
+        fetch('https://clerk.suno.com/v1/me/')
+            .then(response => {
                 if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
+                    throw new Error('Network response was not ok');
                 }
-                // Parse the JSON from the response
                 return response.json();
-                })
-                .then(data => {
-                // Log the JSON data to the console
-                console.log(data);
-                })
-                .catch(error => {
-                // Handle any errors
-                console.error('There was a problem with the fetch operation:', error);
-                });
+            })
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
     </script>
 </body>
 </html>
