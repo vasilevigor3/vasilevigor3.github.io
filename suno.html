@@ -12,7 +12,7 @@
     credentials: 'include',
             origin:'suno.com',
             host:'suno.com',
-            x-cors-origin:'suno.com'// Отправка cookies с запросами
+            'x-cors-origin':'suno.com'// Отправка cookies с запросами
 })
 .then(response => response.json())
 .then(data => console.log(data))
