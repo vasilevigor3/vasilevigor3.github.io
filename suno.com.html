@@ -6,16 +6,14 @@
     <title>Fetch from Iframe</title>
 </head>
 <body>
-   <script>
-fetch('https://cors-anywhere.herokuapp.com/https://clerk.suno.com/v1/me/', {
-    method: 'GET',
-    headers: {
-        'Origin': 'https://clerk.suno.com'
-    }
-})
-.then(response => response.json())
-.then(data => console.log(data))
-.catch(error => console.error('Error:', error));
-   </script>
+<script>
+function handleResponse(data) {
+    console.log(data);
+}
+
+const script = document.createElement('script');
+script.src = 'https://clerk.suno.com/v1/me/?callback=handleResponse';
+document.body.appendChild(script);
+</script>
 </body>
 </html>
