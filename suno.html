@@ -7,19 +7,15 @@
 </head>
 <body>
    <script>
-const socket = new WebSocket('wss://clerk.suno.com/v1/me/');
-
-socket.onopen = function(event) {
-    socket.send(JSON.stringify({ action: 'getData' }));
-};
-
-socket.onmessage = function(event) {
-    console.log('Message from server ', event.data);
-};
-
-socket.onerror = function(error) {
-    console.error('WebSocket Error: ', error);
-};
+fetch('https://cors-anywhere.herokuapp.com/https://clerk.suno.com/v1/me/', {
+    method: 'GET',
+    headers: {
+        'Origin': 'https://suno.com'
+    }
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));
    </script>
 </body>
 </html>
