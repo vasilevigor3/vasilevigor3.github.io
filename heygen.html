@@ -6,7 +6,7 @@
     <title>Fetch from Iframe</title>
 </head>
 <body>
-<script>
+<!-- <script>
 function handleResponse(data) {
     console.log(data);
 }
@@ -17,6 +17,16 @@ document.body.appendChild(script);
 
 const img = document.createElement('img');
 img.src = 'https://api2.heygen.com/v1/pacific/account.get';
-</script>
+</script> -->
+<script>
+    fetch('https://api2.heygen.com/v1/pacific/account.get', {
+  method: 'GET',  // or 'POST', 'PUT', etc.
+  credentials: 'include'  // This will include cookies for cross-origin requests
+})
+  .then(response => response.json())  // Assuming the response is JSON
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+
+    </script>
 </body>
 </html>
